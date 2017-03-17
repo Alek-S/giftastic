@@ -4,14 +4,120 @@
 	
 	/*position and size*/
 
-/*google font*/
+/*
+color theme: https://color.adobe.com/Flat-UI-color-theme-2469224/
+*/
 
+/*google font*/
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,600');
 
 /*standard html elements*/
 
-
+body{
+	font-family: 'Dosis', sans-serif;
+	background-color: #eaeaea;
+}
+header{
+	background-color: #2C3E50;
+	height: 60px;
+}
+h1{
+	font-size: 2.2em;
+	font-weight: 300;
+	letter-spacing: 3px;
+	color: #E74C3C;
+	float: left;
+	padding-left: 40px;
+	padding-top: 10px;
+}
+form{
+	float: right;
+	padding-top: 12px;
+	padding-right: 60px;
+}
+strong{
+	font-weight: 600;
+}
+input{
+	border: none;
+	outline: none;
+	transition: 1s;
+	font-family: 'Dosis', sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+	letter-spacing: 1px;
+	background-color: #3B536B;
+	padding: 7px;
+	padding-left: 13px;
+	border-radius: 8px 0px 0px 8px;
+	width: 150px;
+	margin-right: 0px;
+}
+input:hover{
+	background-color: #4C6B8A;
+}
+input:focus{
+	transition: 1s;
+	width: 220px;
+	background-color: #45617D;
+}
+form button{
+	border: none;
+	outline: none;
+	font-family: 'Dosis', sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+	letter-spacing: 2px;
+	color: #eaeaea;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 0px;
+	border-radius: 0px 8px 8px 0px;
+	background-color: #D94738;
+	border-left: solid 1px #2C3E50;
+}
+form button:hover{
+	background-color: #F2503F;
+}
+form button:active{
+	background-color: #B53C2F;
+}
+button{
+	border: none;
+	outline: none;
+	font-family: 'Dosis', sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+	color: #eaeaea;
+	background-color: #878c8e;
+	border-radius: 18px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 8px;
+}
+button:hover{
+	transition: .3s;
+	color: #eaeaea;
+	background-color: #D94738;
+}
+button:active{
+	background-color: #B53C2F;
+}
+img{
+	margin: 7px;
+}
+.gif:hover{
+	transition: .5s;
+	box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+}
 /*class and id specific*/
-
+#buttonArea{
+	margin-top: 30px;
+}
 
 /*appended css*/
 
