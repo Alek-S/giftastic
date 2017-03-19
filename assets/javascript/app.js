@@ -1,12 +1,9 @@
 $(document).ready(function(){
 
-	//jQuery Cache
-
 	//movie array used for buttons
-	var movieList = [	'Blade Runner',
+	var topics = [	'Blade Runner',
 						'Fight Club',
 						'Little Shop of Horrors',
-						'A Clockwork Orange',
 						'Trainspotting',
 						'Back to the Future',
 						'Samsara',
@@ -28,35 +25,76 @@ $(document).ready(function(){
 					];
 
 	//add buttons for pre-selected movie list
-	for(var i=0; i < movieList.length; i++){
-		addButton( movieList[i] );
+	for(var i=0; i < topics.length; i++){
+		addButton( topics[i] );
 	}
+
+
 
 	// ===== CLICK EVENTS ====
 
 	//user adds new movie using the form
 	$('form button').on('click',function(){
 		event.preventDefault();
-		console.log( $('input').val() );
 
-		movieList.push($('input').val());
-		addButton( $('input').val() );
+		var inputVal= $('input').val();
+
+		//if form has a value
+		if(inputVal){
+			topics.push(inputVal);
+			addButton( inputVal );
+		}
+
+		//clear form input
+		$('input').val('');
 	});
 
+	//user clicks on a movie button, get gifs and prepend static version
 	$('#buttonArea').on('click','button',function(){
-		console.log('clicked:', $(this).text() );
-		getGifs( $(this).text() );  
 
+		if( $('#clearDiv').is(":visible" ) === false ){
+			$('#clearDiv').show();
+		}
+
+		getGifs( $(this).text() );  
 	});
+
+	//user clicks on a gif, swap between static and dynamic(animated) version
+	$('main').on('click','img',function(){
+		var movieName = $(this).attr('data-name');
+		var saticURL = $(this).attr('data-static');
+		var dynamicURL = $(this).attr('data-dynamic');
+		var currentImg = $(this).attr('src');
+		
+		// if current image source is a static image ...
+		if( currentImg === saticURL){
+			//switch to dynamic url
+			$(this).attr('src', dynamicURL);
+		} else {
+			//otherwise switch to static url
+			$(this).attr('src', saticURL);
+		}
+	});
+
+	//clear main area
+	$('#clearBtn').on('click', function(){
+		$('main').empty();
+		$('#clearDiv').hide();
+	});
+
+
 
 	// ===== FUNCTIONS ====
+
+	//add another button
 	function addButton(input){
-		var idVal = movieList.indexOf(input);
+		var idVal = topics.indexOf(input);
 
 		var $button = $('<button>').attr('id',idVal).text(input);
 		$('#buttonArea').append($button);
 	}
 
+	//request URLS from Giphy API
 	function getGifs(search){
 		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
         search + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -70,14 +108,25 @@ $(document).ready(function(){
 			console.log('api url:', queryURL);
 
 			for (var i = 0; i < 10; i++) {
-				var img = $('<img>').addClass('gif');
 
-				console.log('appending:', reply[i].images.fixed_height_still.url)
+				var $div = $('<div>').addClass('gif');
+				var img = $('<img>');
+				var $p = $('<p>').html('<strong>rating:</strong> ' + reply[i].rating);
+
+				//name
+				img.attr('data-name', search );
+
+				//static
+				img.attr('data-static',reply[i].images.fixed_height_still.url );
+
+				//dynamic
+				img.attr('data-dynamic',reply[i].images.fixed_height.url );
+
+				$div.append(img).append($p);
+
 				img.attr('src', reply[i].images.fixed_height_still.url);
-				$('main').prepend(img);
+				$('main').prepend($div);
 			}
-
 		});
 	}
-
 }); //.ready done

@@ -1,18 +1,9 @@
-	/*font*/
-
-	/*style*/
-	
-	/*position and size*/
-
-/*
-color theme: https://color.adobe.com/Flat-UI-color-theme-2469224/
-*/
-
 /*google font*/
-@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,600');
+
+
 
 /*standard html elements*/
-
 body{
 	font-family: 'Dosis', sans-serif;
 	background-color: #eaeaea;
@@ -32,7 +23,7 @@ h1{
 }
 form{
 	float: right;
-	padding-top: 12px;
+	padding-top: 8px;
 	padding-right: 60px;
 }
 strong{
@@ -97,28 +88,72 @@ button{
 	margin-right: 5px;
 	margin-top: 5px;
 	margin-bottom: 5px;
-	padding: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 button:hover{
 	transition: .3s;
 	color: #eaeaea;
-	background-color: #D94738;
+	background-color: #E74C3C;
 }
 button:active{
 	background-color: #B53C2F;
 }
+main{
+	margin-left: 10px;
+	margin-right: 10px;
+}
 img{
-	margin: 7px;
+	margin: 6px;
+}
+
+
+/*class and id specific*/
+.gif{
+	display: inline-block;
 }
 .gif:hover{
-	transition: .5s;
+	transition: .3s;
 	box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
 }
-/*class and id specific*/
+.gif p{
+	padding-left: 6px;
+	margin-bottom: 6px;
+}
 #buttonArea{
 	margin-top: 30px;
+	margin-bottom: 70px;
 }
+#clearDiv{
+	display: none;
+	margin-bottom: 30px;
+	border-top: dotted 1px #999999;
+	position: relative;
+}
+#clearBtn{
+	position: absolute;
+	top: -22px;
 
-/*appended css*/
+	font-weight: 600;
+	color: #878c8e;
 
+	background-color: #eaeaea;
+	border: solid 2px #878c8e;
+	border-radius: 10px;
+
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: 50px;
+}
+#clearBtn:hover{
+	transition: .3s;
+	color: #E74C3C;
+	border: solid 2px #E74C3C;
+}
+#clearBtn:active{
+	color: #B53C2F;
+	border-color: #B53C2F;
+}
 
