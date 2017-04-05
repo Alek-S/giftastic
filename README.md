@@ -1,3 +1,3 @@
 # Giftastic
 
-Link: https://github.com/Alek-S/giftastic
+Page Link: https://alek-s.github.io/giftastic/
